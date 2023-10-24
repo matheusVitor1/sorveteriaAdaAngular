@@ -1,4 +1,6 @@
 # ProjetoMod5Coders
+This is a project I did for a bootcamp called "Santander Coders".
+This bootcamp is designed by one of the largest banks in Brazil, seeking to enter the job market for people interested in programming.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
