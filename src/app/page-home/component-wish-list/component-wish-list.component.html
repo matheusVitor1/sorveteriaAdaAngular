@@ -1,0 +1,87 @@
+<!-- ======= wish list section ======= -->
+<section id="book-a-table" class="book-a-table">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Carrinho</h2>
+      <p>Adicione ao <span>Carrinho</span></p>
+    </div>
+
+    <!-- Start row Form -->
+    <div class="row g-0">
+      <div class="col-lg-4 reservation-img" style="background-image: url(https://www.sanlorenzogelateria.com.br/imagens/sabores/ferreto.png);"
+        data-aos="zoom-out" data-aos-delay="200">
+      </div>
+
+      <!-- Start Form -->
+      <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6">
+              <input [(ngModel)]="nomeCliente" type="text" name="name" class="form-control" id="name" placeholder="Nome"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input [(ngModel)]="emailCliente" type="email" class="form-control" name="email" id="email"
+                placeholder="Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input [(ngModel)]="telefoneCliente" type="text" class="form-control" name="phone" id="phone"
+                placeholder="Telefone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+          </div> <!-- end inputs para escolha info pessoais -->
+
+          <!-- Start inputs para escolha de produto -->
+          <div class="row gy-4 mt-2 align-items-center justify-content-center">
+            <div class="col">
+              <label style="margin-bottom: -1%;">Escolha seu sabor</label>
+              <div class="col-lg-10 col-md-8">
+                <select [(ngModel)]="saborSelecionado" name="sabor" id="sabor" class="form-control">
+                  <option value="Chocolate">Chocolate</option>
+                  <option value="Morango">Morango</option>
+                  <option value="Creme">Creme</option>
+                </select>
+              </div>
+
+              <div class="col-lg-10 col-md-6">
+                <input type="number" name="quantidade" class="form-control" placeholder="# Quantidade"
+                  [(ngModel)]="quantidadeSelecionada">
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-3">
+              <button type="submit" (click)=" adicionarCampoSabor()"> Adicionar Item</button>
+            </div>
+            <div class="col-lg-4 col-md-3" *ngIf="quantidadeCamposSabor > 0">
+              <button type="submit" (click)="removerSabor()">Remover Item</button>
+            </div>
+          </div> <!-- end inputs para escolha de produto -->
+
+          <div class="row"><!-- Lista de Itens Selecionados -->
+            <div class="col">
+              <h4>Itens Selecionados</h4>
+              <ul>
+                <li *ngFor="let item of sabores">{{item.sabor}} ({{item.quantidade}})</li>
+              </ul>
+            </div>
+
+            <div class="col">
+              <div class="text-center">
+                <h4>Valor Total: R$ {{ valorTotal }}</h4>
+                <button type="submit" class="mt-3" (click)="navegarParaPagamento()">Formas de pagamento</button>
+              </div>
+            </div>
+          </div> <!-- end de Itens Selecionados -->
+
+
+
+        </form><!-- End  Form -->
+      </div><!-- End  Form -->
+
+    </div> <!-- end row Form -->
+
+  </div>
+</section><!-- End wish list Section -->

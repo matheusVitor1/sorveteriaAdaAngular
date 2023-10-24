@@ -1,0 +1,36 @@
+<!-- ======= wish list section ======= -->
+<section id="book-a-table" class="book-a-table">
+  <div class="container-fluid" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Endereço</h2>
+      <p>Defina seu <span>Endereço</span></p>
+    </div>
+
+    <!-- Start row Form -->
+    <div class="row g-0">
+
+      <!-- Start Form -->
+      <div class="col-lg-12 d-flex ">
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-6 ">
+              <input [(ngModel)]="cep" type="text" class="form-control" name="phone" id="phone"
+                placeholder="Cep" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+
+            <div class="col-lg-6" >
+              <button type="submit" > Continuar</button>
+            </div>
+          </div> <!-- end inputs para escolha info pessoais -->
+
+        </form><!-- End  Form -->
+      </div><!-- End  Form -->
+
+
+    </div> <!-- end row Form -->
+
+  </div>
+</section><!-- End wish list Section -->
