@@ -17,6 +17,9 @@ import { CommonModule } from '@angular/common';
 import { PageEnderecoComponent } from './page-endereco/page-endereco.component';
 import { PageLoginComponent } from './page-login/page-login.component';
 import { PageCadastroClienteComponent } from './page-cadastro-cliente/page-cadastro-cliente.component';
+import { PageAdmAmbienteComponent } from './page-adm-ambiente/page-adm-ambiente.component';
+import { HeaderAdminComponent } from './page-adm-ambiente/header-admin/header-admin.component';
+import { SectionCadastraSoveteComponent } from './page-adm-ambiente/section-cadastra-sovete/section-cadastra-sovete.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { PageCadastroClienteComponent } from './page-cadastro-cliente/page-cadas
     ComponentWishListComponent,
     PageEnderecoComponent,
     PageLoginComponent,
-    PageCadastroClienteComponent
+    PageCadastroClienteComponent,
+    PageAdmAmbienteComponent,
+    HeaderAdminComponent,
+    SectionCadastraSoveteComponent
   ],
   imports: [
     BrowserModule,

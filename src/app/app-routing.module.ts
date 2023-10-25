@@ -5,6 +5,7 @@ import { PageEnderecoComponent } from './page-endereco/page-endereco.component';
 import { PageLoginComponent } from './page-login/page-login.component';
 import { PageCadastroClienteComponent } from './page-cadastro-cliente/page-cadastro-cliente.component';
 import { ComponentAboutComponent } from './page-home/component-about/component-about.component';
+import { PageAdmAmbienteComponent } from './page-adm-ambiente/page-adm-ambiente.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
   {path: 'home', component: PageHomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'login', component: PageLoginComponent},
   {path: 'cadastroCliente', component: PageCadastroClienteComponent},
   {path: 'about', component: ComponentAboutComponent},
+  {path: 'admin', component: PageAdmAmbienteComponent},
 ];
 
 @NgModule({
