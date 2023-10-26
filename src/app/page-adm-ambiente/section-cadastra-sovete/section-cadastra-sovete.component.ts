@@ -16,5 +16,21 @@ export class SectionCadastraSoveteComponent {
 
   addProduto(){
 
+    const requestBody = { name: this.flavor.value,
+                          unitPrice: this.unitPrice.value,
+                          avaiableUnits: this.avaiableUnits.value ,
+                          urlPhoto: this.urlPhoto.value};
+    console.log('Requisição enviada com o corpo:', requestBody); 
+    this.http.post('http://localhost:8080/sorvetada/api/icecream/create', requestBody).subscribe(
+      (data: any) => {
+        console.log('Resposta recebida:', data);
+      },
+      (error) => {
+        console.error('Ocorreu um erro:', error);
+      }
+    );
+    
+
   }
+
 }

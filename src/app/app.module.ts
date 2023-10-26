@@ -20,6 +20,11 @@ import { PageCadastroClienteComponent } from './page-cadastro-cliente/page-cadas
 import { PageAdmAmbienteComponent } from './page-adm-ambiente/page-adm-ambiente.component';
 import { HeaderAdminComponent } from './page-adm-ambiente/header-admin/header-admin.component';
 import { SectionCadastraSoveteComponent } from './page-adm-ambiente/section-cadastra-sovete/section-cadastra-sovete.component';
+import { SectionEditarSorveteComponent } from './page-adm-ambiente/section-editar-sorvete/section-editar-sorvete.component';
+import { SectionEditarFotoComponent } from './page-adm-ambiente/section-editar-foto/section-editar-foto.component';
+import { SectionExcluirSorveteComponent } from './page-adm-ambiente/section-excluir-sorvete/section-excluir-sorvete.component';
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { SectionCadastraSoveteComponent } from './page-adm-ambiente/section-cada
     PageCadastroClienteComponent,
     PageAdmAmbienteComponent,
     HeaderAdminComponent,
-    SectionCadastraSoveteComponent
+    SectionCadastraSoveteComponent,
+    SectionEditarSorveteComponent,
+    SectionEditarFotoComponent,
+    SectionExcluirSorveteComponent,
+
+
   ],
   imports: [
     BrowserModule,
