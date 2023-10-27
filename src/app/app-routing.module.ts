@@ -6,6 +6,7 @@ import { PageLoginComponent } from './page-login/page-login.component';
 import { PageCadastroClienteComponent } from './page-cadastro-cliente/page-cadastro-cliente.component';
 import { ComponentAboutComponent } from './page-home/component-about/component-about.component';
 import { PageAdmAmbienteComponent } from './page-adm-ambiente/page-adm-ambiente.component';
+import { PageCustomerComponent } from './page-customer/page-customer.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
   {path: 'home', component: PageHomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'cadastroCliente', component: PageCadastroClienteComponent},
   {path: 'about', component: ComponentAboutComponent},
   {path: 'admin', component: PageAdmAmbienteComponent},
+  {path: 'pagina-do-cliente', component: PageCustomerComponent},
 ];
 
 @NgModule({

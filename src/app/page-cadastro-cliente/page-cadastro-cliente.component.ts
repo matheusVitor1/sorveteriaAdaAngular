@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-cadastro-cliente',
@@ -14,6 +15,10 @@ export class PageCadastroClienteComponent {
   ruaControl = new FormControl();
   bairroControl = new FormControl();
   cidadeControl = new FormControl();
+  nameControl = new FormControl();
+  emailControl = new FormControl();
+  passwordControl = new FormControl();
+  documentControl = new FormControl();
 
   updatePattern() {
     if (this.tipoDocumento === 'cpf') {
@@ -29,7 +34,7 @@ export class PageCadastroClienteComponent {
     }
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   buscarEnderecoPorCep() {
     const cep = this.cepControl.value;
@@ -44,6 +49,20 @@ export class PageCadastroClienteComponent {
         this.cidadeControl.setValue(data.localidade);
       });
     }
+  }
+
+  cadastrarCliente(){
+    const requestBody = {
+      name: this.nameControl.value,
+      email: this.emailControl.value,
+      cpf: this.documentControl.value,
+      password: this.passwordControl.value,
+      active: true };
+
+      this.http.post(' http://localhost:8080/sorvetada/api/customer', requestBody).subscribe((data: any) => {
+        console.log('Resposta recebida:', data);
+      });
+      this.router.navigate(['/login']);
   }
 
 

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
+import { CustomerService } from '../page-customer/customer.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../local-storage.service';
+
 @Component({
   selector: 'app-page-login',
   templateUrl: './page-login.component.html',
@@ -8,24 +12,30 @@ import { Router } from '@angular/router';
 })
 export class PageLoginComponent {
 
-  constructor(private http: HttpClient, private router: Router) {
+  emailControl = new FormControl();
+  passwordControl = new FormControl();
 
-  }
-  private firstLoad = true; // Adicione uma variável de controle
+  constructor(private http: HttpClient, private userService: CustomerService, private router: Router, private localStorage: LocalStorageService) { }
+  private firstLoad = false;
 
   realizarLogin() {
-    const email = 'example@example.com'; // Substitua pelo valor real do email que você deseja usar para fazer o login.
+    const params = new HttpParams()
+      .set('email', this.emailControl.value)
+      .set('password', this.passwordControl.value);
 
-    this.http.post<any>('http://localhost:8080/api/login', { email: email }).subscribe((response) => {
-      // Processar a resposta do backend aqui.
-      // A resposta contém os dados de endereço que seu backend retornou.
-      console.log('Rua:', response.rua); // Substitua 'rua' pelo nome real da propriedade em sua resposta.
-    });
+      this.http.post<any>('http://localhost:8080/sorvetada/api/customer/authenticate', null, { params }).subscribe((response) => {
+        const userState = { id: response.id, name: response.name, cpf: response.cpf, email: response.email, addressList: response.addressList };
+        console.log(response);
+
+        this.localStorage.set('userData', userState);
+
+        this.router.navigate(['/pagina-do-cliente']);
+
+        }, (error) => {
+          alert('Usuário ou senha incorretos');
+        }
+
+      )
+
   }
-
-
-
-
-
-
 }

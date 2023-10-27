@@ -13,7 +13,21 @@ export class SectionEditarSorveteComponent {
 
   constructor(private http: HttpClient) {}
 
-  aditaProduto(){
+  editaProduto(){
+
+    const requestBody = {
+      id: this.id.value,
+      unitPrice: this.unitPrice.value};
+
+    console.log('Requisição enviada com o corpo:', requestBody);
+    this.http.put('http://localhost:8080/sorvetada/api/icecream/updateUnitPrice', requestBody).subscribe(
+      (data: any) => {
+        console.log('Resposta recebida:', data);
+      },
+      (error) => {
+        console.error('Ocorreu um erro:', error);
+      }
+    );
 
   }
 }

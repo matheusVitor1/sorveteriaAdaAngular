@@ -23,6 +23,13 @@ import { SectionCadastraSoveteComponent } from './page-adm-ambiente/section-cada
 import { SectionEditarSorveteComponent } from './page-adm-ambiente/section-editar-sorvete/section-editar-sorvete.component';
 import { SectionEditarFotoComponent } from './page-adm-ambiente/section-editar-foto/section-editar-foto.component';
 import { SectionExcluirSorveteComponent } from './page-adm-ambiente/section-excluir-sorvete/section-excluir-sorvete.component';
+import { MenuAdminComponent } from './page-adm-ambiente/menu-admin/menu-admin.component';
+import { PageCustomerComponent } from './page-customer/page-customer.component';
+import { SectionCustomerHeaderComponent } from './page-customer/section-customer-header/section-customer-header.component';
+import { SectionCustomerEnderecoComponent } from './page-customer/section-customer-endereco/section-customer-endereco.component';
+import { SectionPedidosCustomerComponent } from './page-customer/section-pedidos-customer/section-pedidos-customer.component';
+
+
 
 
 
@@ -45,6 +52,11 @@ import { SectionExcluirSorveteComponent } from './page-adm-ambiente/section-excl
     SectionEditarSorveteComponent,
     SectionEditarFotoComponent,
     SectionExcluirSorveteComponent,
+    MenuAdminComponent,
+    PageCustomerComponent,
+    SectionCustomerHeaderComponent,
+    SectionCustomerEnderecoComponent,
+    SectionPedidosCustomerComponent,
 
 
   ],

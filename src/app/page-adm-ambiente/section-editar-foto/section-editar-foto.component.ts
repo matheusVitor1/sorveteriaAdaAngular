@@ -13,8 +13,21 @@ export class SectionEditarFotoComponent {
 
   constructor(private http: HttpClient) {}
 
-  addFoto(){
 
+  editFoto(){
+    const requestBody = {
+      id: this.id.value,
+      urlPhoto: this.urlPhoto.value};
+
+    console.log('Requisição enviada com o corpo:', requestBody);
+    this.http.put('http://localhost:8080/sorvetada/api/icecream/updateUrlPhoto', requestBody).subscribe(
+      (data: any) => {
+        console.log('Resposta recebida:', data);
+      },
+      (error) => {
+        console.error('Ocorreu um erro:', error);
+      }
+    );
   }
 
 }

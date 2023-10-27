@@ -1,0 +1,124 @@
+<section id="menu" class="chefs section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Menu</h2>
+      <p>Nossas <span>Opções</span></p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-4  d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100"
+        *ngFor="let item of menuItems">
+        <div class="chef-member">
+          <div class="member-img">
+            <img [src]="item.urlPhoto" class="img-fluid bg-position-left" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>{{ item.name }}</h4>
+            <span>Master Chef</span>
+            <p class="price" style="font-size: 24px; font-weight: 700; color: #ce1212;">
+              R$ {{ item.unitPrice}}
+            </p>
+            <button type="submit" style="background: #ec2727;   border: 0;
+            padding: 14px 20px;
+            color: #fff;
+            transition: 0.4s;
+            border-radius: 5px;" (click)="adicionarAoPedido(item)">Adicionar ao Pedido</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+
+<section id="carrinho" class="carrinho section-bg" >
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Carrinho</h2>
+      <p>Carrinho</p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-4  d-flex " data-aos="fade-up" data-aos-delay="100"
+        *ngFor="let item of pedido">
+        <div class="chef-member">
+          <div class="member-info">
+            <h4>{{ item.name }}</h4>
+            <p class="price" style="font-size: 24px; font-weight: 700; color: #ce1212;">
+              R$ {{ item.unitPrice}}
+            </p>
+            <button type="submit" style="background: #ec2727; border: 0;
+            padding: 10px 15px;
+            color: #fff;
+            transition: 0.4s;
+            border-radius: 5px;" (click)="removerDoPedido(item)">Remover</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+
+<section id="pedidos" class="book-a-table ">
+
+  <div class="container" data-aos="fade-up">
+
+    <div class="row justify-content-center">
+      <div class="section-header">
+        <p>Concluir Pedido</p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <!-- Start Form -->
+      <div class="col-md-12 d-flex ">
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+          data-aos-delay="100">
+
+          <div class="row">
+
+            <div class="col-md-12">
+              <h4> Selecione o Endereço para entrega:</h4>
+            </div>
+            <div class="col-md-8 mt-3">
+              <select name="endereco" id="endereco" class="form-control" [(ngModel)]="selectedAddress">
+                <option *ngFor="let endereco of enderecos" [value]="getEnderecoOption(endereco)">
+                  {{ getEnderecoOption(endereco) }}
+                </option>
+              </select>
+            </div>
+
+
+            <div class="row align-items-center">
+              <div class="col">
+                <h4> Total: R$ {{ totalPrice.toFixed(2) }}</h4>
+              </div>
+              <div class="col">
+                <button type="submit" class="mt-3" style="width: 150px;" (click)="fazerPedido() ">Fazer Pedido</button>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </form><!-- End Form -->
+      </div><!-- End Form -->
+    </div>
+  </div>
+
+</section><!-- End wish list Section -->
+
